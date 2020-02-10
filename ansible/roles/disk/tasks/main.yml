@@ -1,0 +1,20 @@
+---
+- name: Create a mysql data dir
+  file:
+    path: "{{datadir}}"
+    state: directory
+    mode: '0755'
+
+
+
+- name: Create a ext4 filesystem on /dev/sdb
+  filesystem:
+    fstype: ext4
+    dev: "{{disk}}"
+
+- name: Mount and bind a volume
+  mount:
+    path: "{{datadir}}"
+    src: "{{disk}}"
+    state: mounted
+    fstype: ext4

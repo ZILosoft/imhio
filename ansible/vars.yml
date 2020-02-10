@@ -1,0 +1,14 @@
+datadir: /mnt/mysqldata
+disk: /dev/sdb
+mysql_bind_address: "{{internalip}}"
+
+mysql_databases:
+   - name: example
+     collation: utf8_general_ci
+     encoding: utf8
+
+mysql_users:
+   - name: app
+     host: "%"
+     password: secretsecret
+     priv: "*.*:ALL"

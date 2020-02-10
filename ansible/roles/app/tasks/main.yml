@@ -1,0 +1,24 @@
+- name: download package
+  get_url:
+    url: https://cloud.imhio.com/s/aDH5ktf99CG7k8D/download
+    dest: /tmp/tcg.rpm
+    mode: '0440'
+
+- name: Install package.
+  yum:
+    name: /tmp/tcg.rpm
+    state: present
+
+
+- name: Configure to /etc/tcg/tcg.json
+  template:
+    src: templates/tcg.json.j2
+    dest: /etc/tcg/tcg.json
+  notify: restart tcg
+
+
+- name: start and enable tcg
+  service:
+    name: "tcg"
+    state: started
+    enabled: yes

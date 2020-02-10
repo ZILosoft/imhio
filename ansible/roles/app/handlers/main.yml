@@ -1,0 +1,3 @@
+---
+- name: restart tcg
+  service: "name=tcg state=restarted sleep=5"
