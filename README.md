@@ -1,6 +1,6 @@
 # TCG GCP Infrastructure
 Этот репозиторий позволяет развернуть инфраструкуру для приложения TCG в облаке Google Cloud Platform
-#GCP
+# GCP
 Для начала создаем проект в google cloud 
 
 ```bash
@@ -10,14 +10,14 @@ gcloud auth application-default login
 ```
 
 
-#Terraform
+# Terraform
 После успешной авторизации можно изменить переменные в файле terraform/variables.tf и после этого применить изменения
 ```bash
 cd terraform
 terraform init
 terraform apply
 ```
-#Результат
+# Результат
 2 x инстанса с доступом из публичных сетей OS Centos 7
 оба инстанса также подключены к одной частной сети для 
 организации безопасного обменаданными между приложением 
